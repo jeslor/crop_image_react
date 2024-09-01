@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import ReactCrop, { makeAspectCrop, centerCrop, convertToPixelCrop } from 'react-image-crop'
 import setCanvasPreview from "./setCanvasPreview";
-import styles from '@/components/forms/mainForms.module.css'
+import styles from '../imageForm/imageForm.module.css';
 import { Icon } from "@iconify/react/dist/iconify.js";
 
 const ASPECT_RATIO = 1  ;
