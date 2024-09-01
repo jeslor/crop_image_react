@@ -5,7 +5,10 @@ const ImageForm = () => {
   return (
     <div>
         <h6>Upload an Image</h6>
-        <ImageCropper />
+        <div>
+            <input type="file" accept="image/*" onChange={onSelectFile} />
+        </div>
+
     </div>
   )
 }
