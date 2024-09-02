@@ -2,13 +2,12 @@ import React from 'react'
 import ImageCropper from '../imageCropper/imageCropper'
 
 const ImageForm = () => {
-  return (
-    <div>
-        <h6>Upload an Image</h6>
-        <div>
-            <input type="file" accept="image/*" onChange={onSelectFile} />
-        </div>
+   
 
+  return (
+    <div className='flex flex-col items-center'>
+        <h6 className="opacity-65 font-medium">Upload an Image</h6>
+       <ImageCropper />
     </div>
   )
 }

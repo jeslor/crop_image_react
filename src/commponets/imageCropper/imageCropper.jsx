@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import ReactCrop, { makeAspectCrop, centerCrop, convertToPixelCrop } from 'react-image-crop'
 import setCanvasPreview from "./setCanvasPreview";
-import styles from '../imageForm/imageForm.module.css';
+import 'react-image-crop/dist/ReactCrop.css';
 import { Icon } from "@iconify/react/dist/iconify.js";
 
 const ASPECT_RATIO = 1  ;
@@ -80,9 +80,9 @@ const ImageCropper = ({handleToggleModal,handleSetImage, handleSetFile}) => {
 
   return (
     <>
-        <label className={styles.pickImage} htmlFor="pickImage">
-            <span ><Icon icon="tabler:camera-plus"  /></span>
-            <span className="sr-only">Choose a photo</span>
+        <label className="text-purple-400 hover:text-purple-800 cursor-pointer" htmlFor="pickImage">
+            <span  className=""><Icon className="h-[150px] w-[150px]" icon="tabler:camera-plus"  /></span>
+            <span className="sr-only ">Choose a photo</span>
             <input 
             className="hidden"
             id="pickImage"
@@ -92,9 +92,10 @@ const ImageCropper = ({handleToggleModal,handleSetImage, handleSetFile}) => {
              />
         </label>
         <div className="pb-5"></div>
+        <div className="flex rounded-sm">
         {imageError && <p className="text-sm font-semibold text-red-500">{imageError}</p>}
         {imgURL && (
-            <div className="flex flex-col items-center mb-5">
+            <div className="flex flex-col items-center justify-center border-r-[2px] border-slate-600 bg-slate-900 min-w-[400px]">
                 <ReactCrop
                     crop={crop}
                     keepSelection
@@ -117,7 +118,7 @@ const ImageCropper = ({handleToggleModal,handleSetImage, handleSetFile}) => {
 
         )}
         {crop && (
-            <div className={styles.croppedImageHolder}>
+            <div className="w-full h-full flex flex-col justify-center items-center bg-slate-800 text-slate-300 py-7">
             <h4>New Image look</h4>
             <canvas
             ref={previewCanvasRef}
@@ -138,6 +139,7 @@ const ImageCropper = ({handleToggleModal,handleSetImage, handleSetFile}) => {
             >save Image</button>
             </div>
         )}
+        </div>
     </>
   )
 }
