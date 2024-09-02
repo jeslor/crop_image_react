@@ -118,7 +118,7 @@ const ImageCropper = ({handleToggleModal,handleSetImage, handleSetFile}) => {
 
         )}
         {crop && (
-            <div className="w-full h-full flex flex-col justify-center items-center bg-slate-800 text-slate-300 py-7">
+            <div className="w-full h-full flex flex-col justify-center items-center bg-slate-500 text-slate-300 py-7 min-w-[400px]">
             <h4>New Image look</h4>
             <canvas
             ref={previewCanvasRef}
