@@ -6,7 +6,7 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 
 const ASPECT_RATIO = 1  ;
 const minDimension = 150;
-const ImageCropper = ({handleToggleModal,handleSetImage, handleSetFile}) => {
+const ImageCropper = ({handleSetImage, handleSetFile}) => {
     const imgRef = useRef(null);
     const previewCanvasRef = useRef(null);
     const [imgURL, setImgURL] = useState('');
@@ -70,7 +70,7 @@ const ImageCropper = ({handleToggleModal,handleSetImage, handleSetFile}) => {
             const builtFile  =  new File([blob], "childImage.jpeg", { type: "image/jpeg" });
             handleSetFile(builtFile);
             handleSetImage(previewCanvasRef.current.toDataURL('image/jpeg', 0.3));
-            handleToggleModal();
+
         });
 
         
@@ -135,7 +135,7 @@ const ImageCropper = ({handleToggleModal,handleSetImage, handleSetFile}) => {
             onClick={() => {
                 saveCroppedImage();
             }}
-            className={`secondaryBongoButton mt-4`}
+            className={`font-semibold text-white bg-purple-500 px-4 py-2 rounded-md mt-4`}
             >save Image</button>
             </div>
         )}

@@ -1,12 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ImageForm from './commponets/imageForm/imageForm'
-import ImageCropper from './commponets/imageCropper/imageCropper'
 
 const App = () => {
+  const [images, setImages] = useState([]);
+  const [file, setFile] = useState('');
+
+  const handleSetImage = (image) => {
+    setImages([...images, image]);    
+  }
+
+  const handleSetFile = (file) => {
+    setFile(file);
+  }
   return (
     <div className="flex flex-col justify-center items-center">
       <h1 className='text-4xl font-bold py-8'>Image Cropper</h1>
-      <ImageForm />
+      <ImageForm handleSetFile={handleSetFile} handleSetImage={handleSetImage}/>
+      {
+        images.length &&(
+          <div className="w-full pt-7">
+            <h2 className="pl-8 font-semibold text-2xl">Cropped Images</h2>
+            <div className="flex px-8 flex-wrap gap-4 pb-8 pt-4">
+              {images.map((image, index) => (
+                <img key={index} src={image} alt="cropped" className="h-[150px] w-[150px] rounded-md"/>
+              ))}
+            </div>
+          </div>
+        )
+      }
     </div>
   )
 }
