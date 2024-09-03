@@ -102,7 +102,7 @@ const ImageCropper = ({handleToggleModal,handleSetImage, handleSetFile}) => {
                     onChange={(pixelCrop, percentCrop) => {settingMyCrop(percentCrop)}}
                     aspect={ASPECT_RATIO}
                     minWidth={minDimension}
-                    circularCrop
+                    
 
 
                 >
